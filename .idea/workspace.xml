@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce4b0662-1663-48d9-b82d-180cdaf284ee" name="Changes" comment="" />
+    <list default="true" id="ce4b0662-1663-48d9-b82d-180cdaf284ee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeneralApp/Header/helpers/SelectMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeneralApp/Header/helpers/SelectMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/TableMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/TableMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/helpers/TableHeaderFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/helpers/TableHeaderFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/helpers/TableHeaderSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/helpers/TableHeaderSearch.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +21,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -26,6 +37,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2G7O9clAGVUrclAV3rc7eDPymtg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,7 +68,7 @@
       <updated>1665736004407</updated>
       <workItem from="1665736005497" duration="2945000" />
       <workItem from="1665758802195" duration="4253000" />
-      <workItem from="1665819323882" duration="39810000" />
+      <workItem from="1665819323882" duration="40382000" />
     </task>
     <servers />
   </component>

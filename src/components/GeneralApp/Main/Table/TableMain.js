@@ -18,19 +18,13 @@ const StyledTableCell = styled(TableCell)(({theme}) => ({
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
-    },
-
+    }
 }));
 
 const StyledTableRow = styled(TableRow)(({theme}) => ({
     '&:nth-of-type(odd)': {
         backgroundColor: '#ffffff',
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-
-    },
-
+    }
 }));
 
 function createData(icon, barcode, tenant, build, hall, place, unit, category, type, model, trash) {

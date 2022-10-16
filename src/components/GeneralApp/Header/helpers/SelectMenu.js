@@ -2,7 +2,7 @@ import * as React from 'react';
 import SelectUnstyled, {selectUnstyledClasses} from '@mui/base/SelectUnstyled';
 import OptionUnstyled, {optionUnstyledClasses} from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
-import {styled, Box} from '@mui/system';
+import {styled} from '@mui/system';
 
 const blue = {
     100: '#DAECFF',
@@ -125,17 +125,6 @@ const StyledOption = styled(OptionUnstyled)(
 const StyledPopper = styled(PopperUnstyled)`
   z-index: 1;
 `;
-
-const Label = styled('label')(
-    ({theme}) => `
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.85rem;
-  display: block;
-  margin-bottom: 4px;
-  font-weight: 400;
-  color: ${theme.palette.mode === 'dark' ? grey[400] : grey[700]};
-  `,
-);
 
 const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
     const components = {
