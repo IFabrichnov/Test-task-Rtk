@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from "@mui/material";
 import { makeStyles } from '@material-ui/styles';
 import HeaderMenu from "./HeaderMenu";
-import NavSection from './NavSection';
+import NewNavSection from './NewNavSection';
 
 const useStyles = makeStyles((theme) => ({
     layoutMenu: {
@@ -17,7 +17,7 @@ export default function Menu() {
     return (
         <Box className={classes.layoutMenu}>
             <HeaderMenu />
-            <NavSection />
+            <NewNavSection />
         </Box>
     )
 }

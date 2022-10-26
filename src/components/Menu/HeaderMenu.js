@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     },
     textStyle: {
         fontWeight: '500',
-        color: 'black'
+        color: 'black',
+        marginRight: '20px'
     }
 }));
 
