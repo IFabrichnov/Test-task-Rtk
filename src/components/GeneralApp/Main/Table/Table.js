@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { makeStyles } from '@material-ui/styles';
 import TableHeader from './TableHeader';
 import TableSettings from './TableSettings';
-import TableMain from './TableMain';
+import NewTable from './NewTable';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ export default function Table() {
         <Box className={classes.layoutTable}>
             <TableHeader />
             <TableSettings />
-            <TableMain />
+            <NewTable />
         </Box>
     )
 }

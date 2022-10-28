@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce4b0662-1663-48d9-b82d-180cdaf284ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Menu/MenuItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Menu/NewNavSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/NewTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/HeaderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/HeaderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GeneralApp/Main/Table/Table.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
