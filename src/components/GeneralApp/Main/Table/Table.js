@@ -21,8 +21,6 @@ export default function Table() {
 
     return (
         <Box className={classes.layoutTable}>
-            <TableHeader />
-            <TableSettings />
             <NewTable />
         </Box>
     )

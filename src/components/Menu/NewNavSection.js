@@ -15,7 +15,7 @@ const data = [
             {name: 'Аватар'}, {name: 'Таблица'}
         ] },
     { icon: <FaCheckSquare />, label: 'Инвентаризация', subtitles: [
-            {name: 'Оборудование'}, {name: 'Стойко место'}, {name: 'Инвантаризации'}
+            {name: 'Оборудование'}, {name: 'Стойко место'}, {name: 'Инвентаризации'}
         ]},
     { icon: <FaFolderOpen />, label: 'Мастер справочники', subtitles: [
             {name: 'Площадки'}, {name: 'Задания'}, {name: 'Залы'}, {name: 'Арендаторы'}

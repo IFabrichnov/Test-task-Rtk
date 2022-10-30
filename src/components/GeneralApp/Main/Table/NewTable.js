@@ -5,21 +5,25 @@ import {
     GridToolbarFilterButton,
     GridToolbarExport,
     GridToolbarDensitySelector,
-    GridToolbarQuickFilter
+    GridToolbarQuickFilter,
+    gridPaginatedVisibleSortedGridRowIdsSelector,
+    useGridApiContext
 } from '@mui/x-data-grid';
-import { GridRowModes } from '@mui/x-data-grid-pro';
-import { randomId } from '@mui/x-data-grid-generator';
+import { createSvgIcon } from '@mui/material/utils';
+import {GridRowModes} from '@mui/x-data-grid-pro';
+import {randomId} from '@mui/x-data-grid-generator';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SecurityIcon from '@mui/icons-material/Security';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import {Box} from "@mui/material";
-import {FaBars, FaFilter, FaPlus} from "react-icons/fa";
+import {FaBars, FaFilter, FaPlus, FaUndo, FaChevronDown, FaCog} from "react-icons/fa";
 
 const other = {
     autoHeight: true,
     headerHeight: 40,
+
 };
 
 const initialRows = [
@@ -73,12 +77,44 @@ const initialRows = [
     },
 ];
 
+const getRowsFromCurrentPage = ({ apiRef }) =>
+    gridPaginatedVisibleSortedGridRowIdsSelector(apiRef);
+
+const ExportIcon = createSvgIcon(
+    <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z" />,
+    'SaveAlt',
+);
+
 function CustomToolbar(props) {
     const {setRows, setRowModesModel} = props;
+    const apiRef = useGridApiContext();
+
+    const buttonFirstProps = {
+        size: 'small',
+        startIcon: <ExportIcon />,
+        endIcon: <FaChevronDown />
+    };
+
+    const buttonSecondProps = {
+        size: 'small',
+        startIcon: <FaCog />,
+        endIcon: <FaChevronDown />
+    };
+
+    const buttonThirdProps = {
+        size: 'small',
+        startIcon: <FaUndo />
+    };
+
+    const handleReload = () => {
+        window.location.reload();
+    }
+
+    const handleExport = (options) => apiRef.current.exportDataAsCsv(options);
 
     const handleClick = () => {
         const id = randomId();
-        setRows((oldRows) => [...oldRows, {id, 'Штрихкод': 'RT00000000', 'Арендатор стойкоместа': '', isNew: true}]);
+        setRows((oldRows) => [...oldRows, {id, 'Штрихкод': 'RT00000000', 'Арендатор стойкоместа': 'M100 000 Mail.ru', 'Здание': 'Udomla-1 Удомля, корпус 1', 'Категория': 'вычислительное оборудования',  isNew: true}]);
         setRowModesModel((oldModel) => ({
             ...oldModel,
             [id]: {mode: GridRowModes.Edit, fieldToFocus: 'Штрихкод'},
@@ -87,15 +123,63 @@ function CustomToolbar(props) {
 
     return (
         <GridToolbarContainer>
-            <Box>
-                <Button sx={{color: '#7800ff'}} startIcon={<FaPlus />} onClick={handleClick}>
-                    Создать
-                </Button>
-                <GridToolbarFilterButton sx={{color: 'black'}} />
+            <Box sx={{width: '100%'}}>
+                <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                    <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+                        <Button sx={{color: '#7800ff'}} startIcon={<FaPlus/>} onClick={handleClick}>
+                            Создать
+                        </Button>
+                        <Box sx={{
+                            color: '#848890',
+                            backgroundColor: '#f3f3f4',
+                            marginLeft: '35px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            width: '250px',
+                            justifyContent: 'start',
+                            padding: '1px',
+                            border: '1px solid #f3f3f4',
+                            borderRadius: '10px'
+                        }}>
+                            <GridToolbarFilterButton sx={{color: '#848890', paddingRight: '55%'}}/>
+                            <FaChevronDown/>
+                        </Box>
+                    </Box>
+                    <GridToolbarQuickFilter sx={{
+                        width: '280px',
+                        color: '#848890',
+                        backgroundColor: '#f3f3f4',
+                        padding: '3px 3px 3px 15px',
+                        borderRadius: '10px',
+                    }}/>
+                </Box>
+
+                <Box sx={{display: 'flex', justifyContent: 'end', marginTop: '40px', alignItems: 'center'}}>
+                    <Box sx={{
+                        backgroundColor: '#f5f5f5',
+                        width: '180px',
+                        height: '30px',
+                        padding: '5px',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        alignItems: 'center',
+                        verticalAlign: 'center'}}
+                    >
+                        <FaUndo onClick={() => handleReload()}  style={{ color: '#7800ff', cursor: 'pointer', width: '24px', height: '16px'}} />
+                        <Button
+                            {...buttonSecondProps}
+                            sx={{color: 'black', padding: '0px'}}
+                            onClick={() => alert('Тут будет настройка')}
+                        />
+                        <Button
+                            {...buttonFirstProps}
+                            sx={{color: 'black', padding: '0px'}}
+                            onClick={() => handleExport({ getRowsToExport: getRowsFromCurrentPage })}
+                        />
+                    </Box>
+                </Box>
             </Box>
-            <GridToolbarDensitySelector/>
-            <GridToolbarExport/>
-            <GridToolbarQuickFilter/>
         </GridToolbarContainer>
     );
 }
@@ -294,12 +378,12 @@ export default function NewTable() {
                           },
                       }}
                       components={{
-                          Toolbar: CustomToolbar,
+                          Toolbar: CustomToolbar
                       }}
                       componentsProps={{
-                          toolbar: { setRows, setRowModesModel },
+                          toolbar: {setRows, setRowModesModel},
                       }}
-                      columns={columns} rows={rows} {...other} deleteIconProps hideFooter disableColumnMenu/>
+                      columns={columns} rows={rows} {...other} hideFooter disableColumnMenu/>
         </Box>
     );
 }
